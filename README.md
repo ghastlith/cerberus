@@ -1,9 +1,9 @@
 # password-generator
 
-TODO: write README
-TODO: write javadocs
-TODO: write unit tests
-TODO: write integration test
-TODO: add password generator logic
-+---> SecureRandom
-TODO: update Main class structure
+TODO: write README<br />
+TODO: write javadocs<br />
+TODO: write unit tests<br />
+TODO: write integration test<br />
+TODO: add password generator logic<br />
++---> SecureRandom<br />
+TODO: update Main class structure<br />
