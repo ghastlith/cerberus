@@ -14,17 +14,18 @@ public class ArgumentProcessor {
   private static final String UNMATCHED_LOG_FORMAT = "unrecognized argument: {}";
 
   public Arguments parse(final String... args) {
-    final var arguments = new Arguments();
+    final var input = new Arguments();
 
-    parser(arguments).parseArgs(args);
-    arguments.getUnmatched()
+    parserFor(input).parseArgs(args);
+
+    input.getUnmatched()
         .forEach(arg -> log.warn(UNMATCHED_LOG_FORMAT, arg));
 
-    return arguments;
+    return input;
   }
 
-  private CommandLine parser(final Object arguments) {
-    return new CommandLine(arguments)
+  private CommandLine parserFor(final Object input) {
+    return new CommandLine(input)
         .setOptionsCaseInsensitive(true)
         .setAbbreviatedOptionsAllowed(true);
   }
