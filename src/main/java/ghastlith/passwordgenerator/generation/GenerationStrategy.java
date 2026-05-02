@@ -10,13 +10,13 @@ public record GenerationStrategy(
     @Min(value = 16, message = "Length must be at least 16")
     @Max(value = 32, message = "Length must be at most 32")
     int length,
-    boolean isAlphanumeric
+    boolean hasSymbols
 ) {
 
   public static GenerationStrategy fromInputArguments(final InputArguments arguments) {
     return GenerationStrategy.builder()
         .length(arguments.getLength())
-        .isAlphanumeric(arguments.isAlphanumeric())
+        .hasSymbols(!arguments.isAlphanumeric())
         .build();
   }
 
