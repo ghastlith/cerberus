@@ -12,7 +12,7 @@ import lombok.Builder;
 public record GenerationStrategy(
     @Size(max = 32, message = "Seed must be at most 32 characters")
     byte[] seed,
-    @Min(value = 8, message = "Length must be at least 8")
+    @Min(value = 16, message = "Length must be at least 16")
     @Max(value = 32, message = "Length must be at most 32")
     int length,
     boolean isAlphanumeric

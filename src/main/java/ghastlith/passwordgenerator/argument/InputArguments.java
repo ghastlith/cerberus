@@ -13,7 +13,7 @@ public class InputArguments {
   @Option(names = "--seed")
   private Optional<String> seed;
 
-  @Option(names = "--length", defaultValue = "16")
+  @Option(names = "--length", defaultValue = "24")
   private int length;
 
   @Option(names = "--alphanumeric", defaultValue = "false")
