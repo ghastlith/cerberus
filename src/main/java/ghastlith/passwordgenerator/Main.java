@@ -16,8 +16,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Main implements CommandLineRunner {
 
-  @Autowired private ArgumentProcessor processor;
-  @Autowired private GenerationEngine engine;
+  @Autowired private ArgumentProcessor argumentProcessor;
+  @Autowired private GenerationEngine generationEngine;
 
   public static void main(final String[] args) {
     SpringApplication.run(Main.class, args);
@@ -25,9 +25,9 @@ public class Main implements CommandLineRunner {
 
   @Override
   public void run(final String... args) throws Exception {
-    final var arguments = processor.parse(args);
+    final var arguments = argumentProcessor.parse(args);
     final var policy = GenerationPolicy.fromArguments(arguments);
-    final var password = engine.generatePassword(policy);
+    final var password = generationEngine.generatePassword(policy);
     log.info(password);
   }
 
