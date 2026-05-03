@@ -2,7 +2,6 @@ package ghastlith.passwordgenerator.argument;
 
 import org.springframework.stereotype.Component;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import picocli.CommandLine;
 
@@ -10,7 +9,6 @@ import picocli.CommandLine;
  * Handles operations related to user inputted CLI arguments.
  */
 @Component
-@RequiredArgsConstructor
 @Slf4j
 public class ArgumentProcessor {
 
