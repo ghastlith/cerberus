@@ -14,7 +14,7 @@ public record GenerationPolicy(
 ) {
 
   private static final float NON_ALPHANUMERIC_WEIGHT = 0.25f;
-  private static final int MINIMUM_LENGTH = 0;
+  private static final int BASE_LENGTH = 0;
 
   public static GenerationPolicy fromArguments(final Arguments arguments) {
     return GenerationPolicy.builder()
@@ -35,7 +35,7 @@ public record GenerationPolicy(
   }
 
   public int specialLength() {
-    return hasSymbols ? numbersLength() : MINIMUM_LENGTH;
+    return hasSymbols ? numbersLength() : BASE_LENGTH;
   }
 
 }
