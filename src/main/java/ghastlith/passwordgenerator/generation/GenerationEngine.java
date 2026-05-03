@@ -63,7 +63,7 @@ public class GenerationEngine {
         .mapToObj(c -> (char) c)
         .collect(toList());
 
-    Collections.shuffle(characters);
+    Collections.shuffle(characters, random);
 
     return characters.stream()
         .map(String::valueOf)
