@@ -13,11 +13,29 @@ public record GenerationPolicy(
     boolean hasSymbols
 ) {
 
+  private static final float NON_ALPHANUMERIC_WEIGHT = 0.25f;
+  private static final int MINIMUM_LENGTH = 0;
+
   public static GenerationPolicy fromArguments(final Arguments arguments) {
     return GenerationPolicy.builder()
         .length(arguments.getLength())
         .hasSymbols(!arguments.isAlphanumeric())
         .build();
+  }
+
+  public int lettersLength() {
+    final var numbers = numbersLength();
+    final var special = specialLength();
+
+    return length() - numbers - special;
+  }
+
+  public int numbersLength() {
+    return (int) Math.ceil(length() * NON_ALPHANUMERIC_WEIGHT);
+  }
+
+  public int specialLength() {
+    return hasSymbols ? numbersLength() : MINIMUM_LENGTH;
   }
 
 }
