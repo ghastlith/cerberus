@@ -36,7 +36,7 @@ passwordgenerator --a
 
 </details>
 
-### running with docker
+### docker
 
 To run the application in Docker, you simply build the image.
 
