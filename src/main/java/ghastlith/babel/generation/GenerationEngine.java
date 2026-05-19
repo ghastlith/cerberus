@@ -46,12 +46,13 @@ public class GenerationEngine {
     return password;
   }
 
-  private String getRandomUnits(final String set, final int length) {
-    final var upperBound = set.length();
+  private String getRandomUnits(final CharacterSet set, final int length) {
+    final var characters = set.characters;
+    final var upperBound = characters.length();
 
     return random.ints(RANDOM_LOWER_BOUND, upperBound)
         .limit(length)
-        .mapToObj(set::charAt)
+        .mapToObj(characters::charAt)
         .map(String::valueOf)
         .collect(joining());
   }

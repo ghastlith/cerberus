@@ -1,13 +1,18 @@
 package ghastlith.babel.generation;
 
 /**
- * Wrapper class that delegates static sets containing the lists of characters
- * allowed during password generation.
+ * Sets containing the lists of characters allowed during password generation.
  */
-public class CharacterSet {
+public enum CharacterSet {
 
-  public static final String LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-  public static final String NUMBERS = "0123456789";
-  public static final String SPECIAL = "!#$%&()*+,-./:;<=>?@[]^_{}~";
+  LETTERS("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"),
+  NUMBERS("0123456789"),
+  SPECIAL("!#$%&()*+,-./:;<=>?@[]^_{}~");
+
+  public final String characters;
+
+  private CharacterSet(final String characters) {
+    this.characters = characters;
+  }
 
 }
