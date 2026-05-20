@@ -12,21 +12,21 @@ public class PasswordGeneratorTest {
   private final PasswordGenerator passwordGenerator = new PasswordGenerator(random);
 
   @Test
-  void generatePassword_shouldGeneratePasswordWithCorrectLength() {
+  void generate_shouldGeneratePasswordWithCorrectLength() {
     // given
     final var policy = PasswordPolicy.builder()
         .length(20)
         .build();
 
     // when
-    final var password = passwordGenerator.generatePassword(policy);
+    final var password = passwordGenerator.generate(policy);
 
     // then
     assertThat(password.length()).isEqualTo(20);
   }
 
   @Test
-  void generatePassword_shouldGeneratePasswordWithIntentedAmountOfCharactersBasedOnType() {
+  void generate_shouldGeneratePasswordWithIntentedAmountOfCharactersBasedOnType() {
     // given
     final var policy = PasswordPolicy.builder()
         .length(24)
@@ -34,7 +34,7 @@ public class PasswordGeneratorTest {
         .build();
 
     // when
-    final var password = passwordGenerator.generatePassword(policy);
+    final var password = passwordGenerator.generate(policy);
 
     final var letters = password.chars().filter(Character::isLetter).count();
     final var numbers = password.chars().filter(Character::isDigit).count();
@@ -47,7 +47,7 @@ public class PasswordGeneratorTest {
   }
 
   @Test
-  void generatePassword_shouldGeneratePasswordWithoutSpecialCharactersWhenSymbolsDisabled() {
+  void generate_shouldGeneratePasswordWithoutSpecialCharactersWhenSymbolsDisabled() {
     // given
     final var policy = PasswordPolicy.builder()
         .length(32)
@@ -55,7 +55,7 @@ public class PasswordGeneratorTest {
         .build();
 
     // when
-    final var password = passwordGenerator.generatePassword(policy);
+    final var password = passwordGenerator.generate(policy);
 
     final var hasSpecial = password.chars().anyMatch(c -> !Character.isLetterOrDigit(c));
 

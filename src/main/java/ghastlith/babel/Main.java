@@ -32,7 +32,7 @@ public class Main implements CommandLineRunner {
     try {
       final var arguments = argumentProcessor.parse(args);
       final var policy = PasswordPolicy.fromArguments(arguments);
-      final var password = passwordGenerator.generatePassword(policy);
+      final var password = passwordGenerator.generate(policy);
 
       log.info("generated password: {}", password);
     } catch (Exception e) {

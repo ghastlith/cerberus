@@ -36,7 +36,7 @@ public class PasswordGenerator {
    * @param policy the set of rules to generate a password
    * @return The generated password string.
    */
-  public String generatePassword(@Valid final PasswordPolicy policy) {
+  public String generate(@Valid final PasswordPolicy policy) {
     final var letters = getRandomUnits(LETTERS, policy.lettersLength());
     final var numbers = getRandomUnits(NUMBERS, policy.numbersLength());
     final var special = getRandomUnits(SPECIAL, policy.specialLength());
