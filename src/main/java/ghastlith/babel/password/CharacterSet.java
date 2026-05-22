@@ -15,8 +15,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum CharacterSet {
 
-  UPPER_CASE_LETTERS("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),
-  LOWER_CASE_LETTERS("abcdefghijklmnopqrstuvwxyz"),
+  UPPER_CASE("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),
+  LOWER_CASE("abcdefghijklmnopqrstuvwxyz"),
   NUMBERS("0123456789"),
   SPECIAL("!#$%&()*+,-./:;<=>?@[]^_{}~");
 

@@ -1,9 +1,9 @@
 package ghastlith.babel.password;
 
-import static ghastlith.babel.password.CharacterSet.LOWER_CASE_LETTERS;
+import static ghastlith.babel.password.CharacterSet.LOWER_CASE;
 import static ghastlith.babel.password.CharacterSet.NUMBERS;
 import static ghastlith.babel.password.CharacterSet.SPECIAL;
-import static ghastlith.babel.password.CharacterSet.UPPER_CASE_LETTERS;
+import static ghastlith.babel.password.CharacterSet.UPPER_CASE;
 
 import java.util.Map;
 
@@ -47,8 +47,8 @@ public record PasswordPolicy(
 
   private static Map<CharacterSet, Integer> getMinimumPerCharacterSet(final boolean hasSymbols) {
     return Map.of(
-      UPPER_CASE_LETTERS, MINIMUM_SECTION_LENGTH,
-      LOWER_CASE_LETTERS, MINIMUM_SECTION_LENGTH,
+      UPPER_CASE, MINIMUM_SECTION_LENGTH,
+      LOWER_CASE, MINIMUM_SECTION_LENGTH,
       NUMBERS, MINIMUM_SECTION_LENGTH,
       SPECIAL, hasSymbols ? MINIMUM_SECTION_LENGTH : DISABLED_LENGTH
     );
